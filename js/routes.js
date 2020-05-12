@@ -1,3 +1,5 @@
+import { render } from "mustache";
+
 export default [
   {
     hash: "welcome",
