@@ -87,21 +87,6 @@ function fetchAndDisplayArticles(targetElm) {
 function createHtml4Main(targetElm, current, totalCount) {
   fetchAndDisplayArticles(targetElm);
 
-  // current = parseInt(current);
-  // totalCount = parseInt(totalCount);
-  // const data4rendering = {
-  //     currPage: current,
-  //     pageCount: totalCount
-  // };
-  //
-  // if (current > 1) {
-  //     data4rendering.prevPage = current - 1;
-  // }
-  //
-  // if (current < totalCount) {
-  //     data4rendering.nextPage = current + 1;
-  // }
-
   document.getElementById(targetElm).innerHTML = render(
     document.getElementById("template-articles").innerHTML
   );
