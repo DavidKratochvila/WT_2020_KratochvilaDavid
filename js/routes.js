@@ -1,5 +1,3 @@
-import { render } from "mustache";
-
 export default [
   {
     hash: "welcome",
@@ -103,7 +101,6 @@ function createHtml4Main(targetElm, current, totalCount) {
   // }
 
   document.getElementById(targetElm).innerHTML = render(
-    document.getElementById("template-articles").innerHTML,
-    data4rendering
+    document.getElementById("template-articles").innerHTML
   );
 }
