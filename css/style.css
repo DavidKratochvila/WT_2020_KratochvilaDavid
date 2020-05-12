@@ -1,0 +1,165 @@
+body {
+  background-color: darkolivegreen;
+  font-family: Georgia;
+  color: white;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  color: black;
+  font-weight: bold;
+}
+
+h3 {
+  color: black;
+  font-weight: bold;
+}
+
+h6 {
+  color: black;
+  font-style: italic;
+  text-align: center;
+  font-size: 60%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.half {
+  width: 40%;
+  float: left;
+  /*background-color: lightgrey;*/
+  /*color: black;*/
+  /*padding-top: 0.1%;*/
+  /*padding-bottom: 0.1%;*/
+  /*padding-left: 1%;*/
+  /*padding-right: 1%;*/
+}
+
+img {
+  width: 100%;
+  animation: imgmove 2s;
+}
+
+nav {
+  text-align: center;
+  margin: 25px 0;
+  border-bottom: 2px solid white;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline;
+  margin: 0 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  transition: 0.3s;
+  padding: 5px 12px;
+}
+
+nav ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
+article {
+  float: left;
+  width: 70%;
+  display: inline-block;
+  background-color: lightgrey;
+  color: black;
+  padding: 5px 1% 1% 1%;
+  margin: 0px 10px 0px 3px;
+}
+
+aside {
+  padding-left: 1%;
+  width: 20%;
+  background-color: lightgrey;
+  color: black;
+  float: left;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+  font-style: italic;
+  font-size: 80%;
+}
+
+input[type="text"] {
+  display: block;
+}
+
+#block {
+  display: block;
+}
+
+form {
+  margin-top: 3%;
+}
+
+input[required] {
+  background-color: lightcoral;
+}
+
+@keyframes imgmove {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  article {
+    width: 100%;
+  }
+
+  aside {
+    width: 100%;
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  aside {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+}

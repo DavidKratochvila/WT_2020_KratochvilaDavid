@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="David Kratochvila" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+    <title>Military Aviation History Blog</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Military Aviation History Blog</h1>
+
+      <nav>
+        <ul>
+          <li><a href="#welcome">Home</a></li>
+          <li><a href="#articles">Articles</a></li>
+          <li><a href="#opinions">Visitor opinions</a></li>
+          <li><a href="#addOpinion">Tell us your opinion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="router-view"></main>
+
+    <aside>
+      <h4>You might also like</h4>
+      <ul>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Flying_ace">What is an ace?</a>
+        </li>
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/List_of_World_War_II_flying_aces"
+            >List of aces</a
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <footer>
+      Vytvoril David Kratochvila (<a
+        href="mailto:david.kratochvila@student.tuke.sk?Subject=Reaction%20to%20your%20blog"
+        >david.kratochvila@student.tuke.sk</a
+      >) 3.3.2020
+    </footer>
+
+    <script id="template-welcome" type="text/template">
+      <article>
+          <h2>Hello aviators!</h2>
+
+          <p>
+              Welcome to my blog about glorious warbirds that used to rule the skies of Europe and Pacific during the WWII.
+          </p>
+      </article>
+    </script>
+
+    <script id="template-articles" type="text/template">
+      <article>
+          <h2>News</h2>
+      </article>
+
+      {{#.}}
+      <article>
+          <h3> {{title}} </h3>
+          <br>
+          <div>
+              {{{content}}}
+          </div>
+      </article>
+      {{/.}}
+
+      <!--    <p>-->
+      <!--        Displaying page {{currPage}} of {{pageCount}} pages. <br> <br>-->
+
+      <!--    <nav>-->
+      <!--        {{#prevPage}}-->
+      <!--        <a href="#articles/{{prevPage}}/{{pageCount}}"><< Previous page</a>-->
+      <!--        {{/prevPage}}-->
+      <!--        {{#nextPage}}-->
+      <!--        <a href="#articles/{{nextPage}}/{{pageCount}}">Next page >></a>-->
+      <!--        {{/nextPage}}-->
+      <!--    </nav>-->
+      <!--    </p>-->
+
+      <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+    </script>
+
+    <script id="template-articles-error" type="text/template">
+
+      <article>
+          <h2>Articles acquisition failed</h2>
+          <p>
+              {{errMessage}}
+          </p>
+      </article>
+      <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+    </script>
+
+    <script id="template-opinions" type="text/template">
+      <article  id="artOpinions">
+          <h2>Visitor Opinions</h2>
+          {{#.}}
+          <br>
+          <section>
+              <h3>{{name}}</h3>
+              <p>{{email}}</p>
+              <p>{{image}}</p>
+              <p>{{flew}}</p>
+              <p>{{planeSmall}}</p>
+              <p>{{planeBig}}</p>
+              <p>{{planeJet}}</p>
+              <p>{{tags}}</p>
+              <p>{{message}}</p>
+
+          </section>
+          {{/.}}
+          {{^.}}
+          <section>
+              Sorry, no opinions found.
+          </section>
+          {{/.}}
+          <footer  class="menuLink"><a href="#menuTitle">Back to the menu</a></footer>
+      </article>
+    </script>
+
+    <script id="template-addOpinion" type="text/template">
+      <article  id="artOpnFrm">
+          <h2>Your Opinion</h2>
+          <p>
+              Please, use the form below to state your opinion about this page.
+          </p>
+          <form id="myForm">
+              <label for="name">Your name (required): </label>
+              <input type="text" name="username" id="name" size="30" maxlength="50" placeholder="Enter your name here" required><br>
+              <label for="email">Your email (required): </label>
+              <input type="text" name="email" id="email" size="30" maxlength="50" placeholder="Enter your email here" required><br>
+              <label for="image">Attached image: </label>
+              <input type="text" name="image" id="image" size="30" maxlength="50" placeholder="Copy URL of attached image here"><br>
+
+              <input type="radio" name="flew" id="flewYes" value="yes">
+              <label for="flewYes">Yes</label>
+              <input type="radio" name="flew" id="flewNo" value="no">
+              <label for="flewNo">Not yet</label>
+              <input type="radio" name="flew" id="flewAfraid" value="afraid">
+              <label for="flewAfraid">I'm too afraid</label><br><br>
+
+              <input type="checkbox" name="plane" id="planeSmall" value="small">
+              <label for="planeSmall">Small plane</label>
+              <input type="checkbox" name="plane" id="planeBig" value="airliner">
+              <label for="planeBig">Big airliner</label>
+              <input type="checkbox" name="plane" id="planeJet" value="jet">
+              <label for="planeJet">Jet-powered aircraft</label><br><br>
+
+              <label for="form-tags">Choose a tag:</label>
+              <input list="tags" id="form-tags" name="form-tags" required />
+              <datalist id="tags">
+                  <option value="Articles">
+                  <option value="IRL experiences">
+                  <option value="Museums">
+                  <option value="Other">
+              </datalist><br><br>
+
+              <label for="message">Your message:</label><br>
+              <textarea name="opinion" id="message" rows="10" cols="100">Enter your message here</textarea><br>
+
+              <button type="submit" onclick="urobFormular(event)">Send</button>
+              <button type="reset">Reset</button>
+
+          </form>
+      </article>
+    </script>
+
+    <script src="js/addOpinion.js"></script>
+    <script type="module" src="js/routerInit.js"></script>
+  </body>
+</html>
